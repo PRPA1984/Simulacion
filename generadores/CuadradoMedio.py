@@ -5,6 +5,10 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
 
 def cuadradoMedio(cantidad_digitos_deseada:int, semilla:int):
+    if (cantidad_digitos_deseada <= 0):
+        raise Exception("El valor de la cantidad de digitos debe ser mayor a 0")
+    elif (semilla <= 0):
+        raise Exception("El valor de la semilla debe ser mayor a 0")
     dataframe = pd.DataFrame(columns = ["Xn", "X^2", "Cant Digitos", "Numero ajustado segun 0s", "Parte Central", "Nro Aleatorio"])
     i = 0
     cant_digitos_maxima = len(str((10**cantidad_digitos_deseada - 1) ** 2))

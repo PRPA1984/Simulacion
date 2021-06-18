@@ -5,6 +5,8 @@ def aceptacionRechazo(funcion: str, a:int, b:int, M:int, cant_va:int):
     #La funcion es la f(x) como String
     if (a > b):
         raise Exception("El valor de a debe ser menor al valor de b")
+    elif (cant_va <= 0):
+        raise Exception("La cantidad de variables aleatorias debe ser mayor a 0")
     df = pd.DataFrame(columns=['r1', 'r2', 'v.a.x', 'f(x)', 'f(x)/M'])
     for x in range(cant_va):
         while(True):

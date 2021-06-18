@@ -1,5 +1,10 @@
 import math
 def testRachas(listaAleatorios:list, estadistico:float):
+    if (estadistico <= 0):
+        raise Exception("El valor del estadistico debe ser mayor a 0")
+    for num in listaAleatorios:
+        if num<=0 or num>=1:
+            raise Exception("Todos los numeros aleatorios deben ser mayores a 0 y menores a 1")
     listaRachas = list(map(lambda x: "-" if x<= 0.5 else "+",listaAleatorios))
     for index in range(len(listaRachas)):
         if (index == 0):

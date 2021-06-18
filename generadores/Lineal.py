@@ -3,6 +3,12 @@ import pandas as pd
 def lineal(a:int, b:int, m:int, semilla:int):
     if(a <= 0 or a>=m):
         raise Exception("El valor de a debe estar comprendido entre 0 y m")
+    elif(b < 0 or b>=m):
+        raise Exception("El valor de b debe estar comprendido entre 0 y m")
+    elif (m <= 0):
+        raise Exception("El valor de m debe ser mayor a 0")
+    elif (semilla <= 0):
+        raise Exception("El valor de la semilla debe ser mayor a 0")
     dataframe = pd.DataFrame(columns = ["Xn+1", "Nro Aleatorio"])
     i = 0
     while True:

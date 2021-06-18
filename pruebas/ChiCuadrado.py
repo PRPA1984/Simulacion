@@ -1,6 +1,10 @@
 import pandas as pd
 
 def testChiCuadrado(listaAleatorios:list, k:int, estadistico:float):
+    if (k <= 0):
+        raise Exception("El valor de k debe ser mayor a 0")
+    elif (estadistico <= 0):
+        raise Exception("El valor del estadistico debe ser mayor a 0")
     intervalos=pd.DataFrame(columns=['Rango', 'Frecuencia Observada', 'Frecuencia Esperada'])
     for x in range(0, k+1):
         if x==0:
@@ -12,6 +16,8 @@ def testChiCuadrado(listaAleatorios:list, k:int, estadistico:float):
                                             'Frecuencia Observada': 0,
                                             'Frecuencia Esperada': len(listaAleatorios)/k}, ignore_index=True)
     for num in listaAleatorios:
+        if num<=0 or num>=1:
+            raise Exception("Todos los numeros aleatorios deben ser mayores a 0 y menores a 1")
         for index,row in intervalos[1:].iterrows():
             if(num>=intervalos.iloc[index - 1]['Rango'] and num < row['Rango']):
                 intervalos.iloc[index]['Frecuencia Observada'] += 1
